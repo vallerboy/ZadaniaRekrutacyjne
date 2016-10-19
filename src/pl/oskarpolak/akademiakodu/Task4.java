@@ -7,28 +7,36 @@ import java.util.List;
 public class Task4 {
 	public static void main(String[] args) {
 		  Task4 task = new Task4();
-		  task.solution(new int[] {1, -1, 0, 2, 3 ,5}, 3);
+		  task.solution("((()))))(");
 		
 	}
 	
 	
-    private int  solution(int[] a, int D){
-    
-        List steps = new ArrayList<Integer>();
-        int localStep; 
-    	for(int step = 0; step < a.length; step++){
-    		for(int jump = 1; jump < D ; jump++){
-    			if(step + jump < a.length && a[step+jump] != -1 &&  step == a[step+jump] ){
-    				step += jump;
-    				System.out.println("jump at " + step);
-    			}else if(step + jump > a.length ){
-    				System.out.println("koniec " + step);
-    				
-    			}
-    		}
-    	}
-    	
-    	return 0;
+    private int  solution(String s ){
+
+     	 int open = 0;
+     	 int index = 0;
+    	  for(int i = 0; i < s.length(); i++) {
+    		  
+    		  if(s.charAt(i) == '('){
+    			open++;
+    		  }  
+    		  int countClose = 0;
+    		  // Liczmy zamkniête od momentu zatrzymania kursora
+			  for(int x = i; x < s.length(); x++){
+				  if(s.charAt(x) == ')'){
+					  countClose++;
+				  }
+			  } 
+			  // sprawdzamy czy czasem iloœæ otwartych nawiasów nie równa siê ju¿ z zamkniêtymi
+			  if(open == countClose){
+				  System.out.println(i);
+				  return index;
+			  }
+    		  
+    	  }
+ 
+      return index;
     }
 	
 }
