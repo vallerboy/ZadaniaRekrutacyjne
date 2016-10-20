@@ -59,7 +59,7 @@ public class Task1 {
 		  averrage = averrage / array.length;
 		  System.out.println("Averrage1: " + averrage);
 		  // Wyznacz maksymalne odchylenie tablicy
-		  double maxD = 0; 
+		  double maxD = Double.MIN_VALUE; 
 		  for(int a1 = 0; a1 < array.length; a1++){ 
 			   if(maxD < getAverrage(a1)){
 				   maxD = getAverrage(a1);

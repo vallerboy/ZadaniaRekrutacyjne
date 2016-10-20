@@ -4,21 +4,20 @@ public class Task2 {
 	public static void main(String[] args) {
 		  Task2 task = new Task2();
 		  
-		  int[] data = {-8, 4, 0, 5, -3, 6};
+		  int[] data = {5, 5, 2, 5, -3, 8};
 		  
 		  task.solution(data);
 	}
 	
 	
-    private int solution(int[] a){
-    	int max = 0;
+    private long solution(int[] a){
+    	long max = Long.MIN_VALUE;
     	
     	for(int p = 0; p < a.length; p++){ 
     		for(int q = 0; q < a.length; q++){ 
-        	int temp = a[p] + a[q] + (q - p);
-        		if(q < temp){
-        		    if(temp > max) max = temp;
-        		   }
+        	long temp = a[p] + a[q] + (q - p);
+            if(temp > max) max = temp;
+        		  
         	}
     	}
 

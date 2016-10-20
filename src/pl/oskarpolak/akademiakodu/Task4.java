@@ -1,42 +1,49 @@
 package pl.oskarpolak.akademiakodu;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+
 
 public class Task4 {
 	public static void main(String[] args) {
 		  Task4 task = new Task4();
-		  task.solution("((()))))(");
-		
+		  task.solution("(())))(");
+		  task.solution("(())))(()");
+		  task.solution("(((())))(()");
+		  task.solution("()())(");
+		  task.solution("()");
 	}
 	
 	
+  
+	
+	
     private int  solution(String s ){
-
-     	 int open = 0;
-     	 int index = 0;
-    	  for(int i = 0; i < s.length(); i++) {
-    		  
-    		  if(s.charAt(i) == '('){
-    			open++;
-    		  }  
-    		  int countClose = 0;
-    		  // Liczmy zamkniête od momentu zatrzymania kursora
-			  for(int x = i; x < s.length(); x++){
-				  if(s.charAt(x) == ')'){
-					  countClose++;
-				  }
-			  } 
-			  // sprawdzamy czy czasem iloœæ otwartych nawiasów nie równa siê ju¿ z zamkniêtymi
-			  if(open == countClose){
-				  System.out.println(i);
-				  return index;
-			  }
-    		  
-    	  }
+      int counter = 0;
+  	  for(int i = 0; i < s.length(); i++) {
+  		  int countOpen = 0; 
+  		  // nawiasy otwarte
+  		    for(int x = 0; x <= i; x++) { 
+  		    	  if(s.charAt(x) == '('){ 
+  		    		  countOpen++; 
+  		    	  }
+  		    	  counter ++;
+  		    }
  
-      return index;
-    }
+  		int countClosed = 0;
+  		  // nawiasy zamkniête - liczy dopiero odk¹d skoñczy³ counter
+  	    for(int x = counter; x < s.length(); x++) { 
+	    	  if(s.charAt(x) == ')'){ 
+	    		  countClosed++; 
+	    	  }
+	    }
+	     
+  	     if(countOpen == countClosed) {
+  	    	 System.out.println(counter);
+  	     }
+  	    
+  	  }
+
+    return counter;
+  }
+    
 	
 }
